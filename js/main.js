@@ -29,12 +29,12 @@
 
 				var texture = THREE.ImageUtils.loadTexture( 'img/trevor-baseball.jpg' );
 
-				var geometry = new THREE.BoxGeometry( 20, 20, 20 );
+				var geometry = new THREE.BoxGeometry( 50, 50, 50 );
 
-				for ( var i = 0; i < 500; i ++ ) {
+				for ( var i = 0; i < 125; i ++ ) {
 
 
-					var object = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture, opacity: 0.5 } ) );
+					var object = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture, opacity: 0.65 } ) );
 					object.position.x = Math.random() * 800 - 400;
 					object.position.y = Math.random() * 800 - 400;
 					object.position.z = Math.random() * 800 - 400;
