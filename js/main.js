@@ -59,9 +59,9 @@
 					texture2.repeat.set( 1, 1 );
 					scene.add(mesh2);
 
-					var solo = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture2 , opacity: 1 } ) );
+					//var solo = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture2 , opacity: 1 } ) );
 
-					scene.add( solo );
+					//scene.add( solo );
 
 				}
 
