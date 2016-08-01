@@ -27,8 +27,8 @@
 
 				scene = new THREE.Scene();
 
-				var texture = THREE.ImageUtils.loadTexture( 'img/trevor-baseball.jpg' );
-				var texture2 = THREE.ImageUtils.loadTexture( 'img/trophy.png' );
+				var texture = THREE.ImageUtils.loadTexture( 'img/trophy.png' );
+				var texture2 = THREE.ImageUtils.loadTexture( 'img/trevor-baseball.jpg' );
 
 				var geometry = new THREE.BoxGeometry( 50, 50, 50 );
 
@@ -51,8 +51,7 @@
 
 				for ( var i = 0; i < 1; i ++ ) {
 
-					var texture2 = THREE.ImageUtils.loadTexture('img/trophy.png');
-					var geometry2 = new THREE.SphereGeometry(150, 100, 100);
+					var geometry2 = new THREE.SphereGeometry(75, 50, 50);
 					var material2 = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xdcdcdc, map: texture2});
 					var mesh2 = new THREE.Mesh(geometry2, material2);
 					texture2.wrapS = texture2.wrapT = THREE.RepeatWrapping;
