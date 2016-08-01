@@ -51,8 +51,15 @@
 
 				for ( var i = 0; i < 1; i ++ ) {
 
+					var texture2 = THREE.ImageUtils.loadTexture('img/trophy.png');
+					var geometry2 = new THREE.SphereGeometry(150, 100, 100);
+					var material2 = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xdcdcdc, map: texture2});
+					var mesh2 = new THREE.Mesh(geometry2, material2);
+					texture2.wrapS = texture2.wrapT = THREE.RepeatWrapping;
+					texture2.repeat.set( 1, 1 );
+					scene.add(mesh2);
 
-					var solo = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0xff0000, map: texture2 , opacity: 1 } ) );
+					var solo = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture2 , opacity: 1 } ) );
 
 					scene.add( solo );
 
