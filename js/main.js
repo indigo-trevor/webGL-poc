@@ -51,7 +51,7 @@
 
 				for ( var i = 0; i < 1; i ++ ) {
 
-					var geometry2 = new THREE.SphereGeometry(75, 50, 50);
+					var geometry2 = new THREE.SphereGeometry(25, 15, 15);
 					var material2 = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xdcdcdc, map: texture2});
 					var mesh2 = new THREE.Mesh(geometry2, material2);
 					//texture2.wrapS = texture2.wrapT = THREE.RepeatWrapping;
