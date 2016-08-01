@@ -28,6 +28,7 @@
 				scene = new THREE.Scene();
 
 				var texture = THREE.ImageUtils.loadTexture( 'img/trevor-baseball.jpg' );
+				var texture2 = THREE.ImageUtils.loadTexture( 'img/trophy.svg' );
 
 				var geometry = new THREE.BoxGeometry( 50, 50, 50 );
 
@@ -45,6 +46,15 @@
 					object.rotation.y = Math.random() * 2 * Math.PI;
 					object.rotation.z = Math.random() * 2 * Math.PI;
 					scene.add( object );
+
+				}
+
+				for ( var i = 0; i < 1; i ++ ) {
+
+
+					var solo = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture2 , opacity: 0.65 } ) );
+
+					scene.add( solo );
 
 				}
 
