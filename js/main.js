@@ -129,7 +129,7 @@ function onDocumentMouseMove( event ) {
 
 			SELECTED.position.copy( intersection.sub( offset ) );
 
-			SELECTED.material.color.setHex( 0xFF0000  );
+			//SELECTED.material.color.setHex( 0xFF0000  );
 
 			// console.log(SELECTED);
 		}
@@ -148,6 +148,7 @@ function onDocumentMouseMove( event ) {
 
 			INTERSECTED = intersects[ 0 ].object;
 			INTERSECTED.currentHex = INTERSECTED.material.color.getHex();
+			INTERSECTED.material.color.setHex( 0xFF0000  );
 
 			plane.setFromNormalAndCoplanarPoint(
 				camera.getWorldDirection( plane.normal ),
@@ -155,7 +156,7 @@ function onDocumentMouseMove( event ) {
 
 		}
 
-		container.style.cursor = 'pointer';
+		container.style.cursor = 'move';
 
 	} else {
 
