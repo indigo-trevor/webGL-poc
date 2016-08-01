@@ -1,40 +1,231 @@
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+var container, stats;
+var camera, controls, scene, renderer;
+var objects = [];
+var plane = new THREE.Plane();
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2(),
+offset = new THREE.Vector3(),
+intersection = new THREE.Vector3(),
+INTERSECTED, SELECTED;
 
-			var camera, scene, renderer;
-			var geometry, material, mesh;
+init();
+animate();
 
-			function setup() {
+function init() {
 
-				var W = window.innerWidth, H = window.innerHeight;
-				renderer = new THREE.WebGLRenderer();
-				renderer.setSize( W, H );
-				document.body.appendChild( renderer.domElement );
+	container = document.createElement( 'div' );
+	document.body.appendChild( container );
 
-				camera = new THREE.PerspectiveCamera( 300, W/H, 1, 10000 );
-				camera.position.z = 500;
+	camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 10000 );
+	camera.position.z = 1000;
 
-				scene = new THREE.Scene();
+	controls = new THREE.TrackballControls( camera );
+	controls.rotateSpeed = 1.0;
+	controls.zoomSpeed = 1.2;
+	controls.panSpeed = 0.8;
+	controls.noZoom = false;
+	controls.noPan = false;
+	controls.staticMoving = true;
+	controls.dynamicDampingFactor = 0.3;
 
+	scene = new THREE.Scene();
 
-				// paste your code from the geometryGUI here
-				geometry = new THREE.CubeGeometry(200, 200, 200);
-				material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
-				mesh = new THREE.Mesh(geometry, material);
-				scene.add(mesh);
+	scene.add( new THREE.AmbientLight( 0x505050 ) );
 
-			}
+	var light = new THREE.SpotLight( 0xffffff, 1.5 );
+	light.position.set( 0, 500, 2000 );
+	light.castShadow = true;
 
-			function draw() {
+	light.shadow = new THREE.LightShadow( new THREE.PerspectiveCamera( 50, 1, 200, 10000 ) );
+	light.shadow.bias = - 0.00022;
 
-				requestAnimationFrame( draw );
+	light.shadow.mapSize.width = 2048;
+	light.shadow.mapSize.height = 2048;
 
-				// experiment with code from the snippets menu here
-				mesh.rotation.x = Date.now() * 0.0005;
-				mesh.rotation.y = Date.now() * 0.0002;
-				mesh.rotation.z = Date.now() * 0.001;
-				renderer.render( scene, camera );
+	scene.add( light );
 
-			}
+	var geometry = new THREE.BoxGeometry( 40, 40, 40 );
 
-			setup();
-			draw();
+	for ( var i = 0; i < 200; i ++ ) {
+
+		var object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( {
+			color: Math.random() * 0xffffff
+		 } ) );
+
+		object.position.x = Math.random() * 1000 - 500;
+		object.position.y = Math.random() * 600 - 300;
+		object.position.z = Math.random() * 800 - 400;
+
+		object.rotation.x = Math.random() * 2 * Math.PI;
+		object.rotation.y = Math.random() * 2 * Math.PI;
+		object.rotation.z = Math.random() * 2 * Math.PI;
+
+		object.scale.x = Math.random() * 2 + 1;
+		object.scale.y = Math.random() * 2 + 1;
+		object.scale.z = Math.random() * 2 + 1;
+
+		object.castShadow = true;
+		object.receiveShadow = true;
+
+		scene.add( object );
+
+		objects.push( object );
+
+	}
+
+	renderer = new THREE.WebGLRenderer( { antialias: true } );
+	renderer.setClearColor( 0xf0f0f0 );
+	renderer.setPixelRatio( window.devicePixelRatio );
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.sortObjects = false;
+
+	renderer.shadowMap.enabled = true;
+	renderer.shadowMap.type = THREE.PCFShadowMap;
+
+	container.appendChild( renderer.domElement );
+
+	// var info = document.createElement( 'div' );
+	// info.style.position = 'absolute';
+	// info.style.top = '10px';
+	// info.style.width = '100%';
+	// info.style.textAlign = 'center';
+	// info.innerHTML = '<a href="http://threejs.org" target="_blank">three.js</a> webgl - draggable cubes';
+	// container.appendChild( info );
+
+	stats = new Stats();
+	container.appendChild( stats.dom );
+
+	renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
+	renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
+	renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
+
+	//
+
+	window.addEventListener( 'resize', onWindowResize, false );
+
+}
+
+function onWindowResize() {
+
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+function onDocumentMouseMove( event ) {
+
+	event.preventDefault();
+
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+	raycaster.setFromCamera( mouse, camera );
+
+	if ( SELECTED ) {
+
+		if ( raycaster.ray.intersectPlane( plane, intersection ) ) {
+
+			SELECTED.position.copy( intersection.sub( offset ) );
+
+			SELECTED.material.color.setHex( 0xFF0000  );
+
+			// console.log(SELECTED);
+		}
+
+		return;
+
+	}
+
+	var intersects = raycaster.intersectObjects( objects );
+
+	if ( intersects.length > 0 ) {
+
+		if ( INTERSECTED != intersects[ 0 ].object ) {
+
+			if ( INTERSECTED ) INTERSECTED.material.color.setHex( INTERSECTED.currentHex );
+
+			INTERSECTED = intersects[ 0 ].object;
+			INTERSECTED.currentHex = INTERSECTED.material.color.getHex();
+
+			plane.setFromNormalAndCoplanarPoint(
+				camera.getWorldDirection( plane.normal ),
+				INTERSECTED.position );
+
+		}
+
+		container.style.cursor = 'pointer';
+
+	} else {
+
+		if ( INTERSECTED ) INTERSECTED.material.color.setHex( INTERSECTED.currentHex );
+
+		INTERSECTED = null;
+
+		container.style.cursor = 'auto';
+
+	}
+
+}
+
+function onDocumentMouseDown( event ) {
+
+	event.preventDefault();
+
+	raycaster.setFromCamera( mouse, camera );
+
+	var intersects = raycaster.intersectObjects( objects );
+
+	if ( intersects.length > 0 ) {
+
+		controls.enabled = false;
+
+		SELECTED = intersects[ 0 ].object;
+
+		if ( raycaster.ray.intersectPlane( plane, intersection ) ) {
+
+			offset.copy( intersection ).sub( SELECTED.position );
+
+		}
+
+		container.style.cursor = 'move';
+
+	}
+
+}
+
+function onDocumentMouseUp( event ) {
+
+	event.preventDefault();
+
+	controls.enabled = true;
+
+	if ( INTERSECTED ) {
+
+		SELECTED = null;
+
+	}
+
+	container.style.cursor = 'auto';
+
+}
+
+//
+
+function animate() {
+
+	requestAnimationFrame( animate );
+
+	render();
+	stats.update();
+
+}
+
+function render() {
+
+	controls.update();
+
+	renderer.render( scene, camera );
+
+}
