@@ -54,7 +54,7 @@
 					var geometry2 = new THREE.SphereGeometry(75, 50, 50);
 					var material2 = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xdcdcdc, map: texture2});
 					var mesh2 = new THREE.Mesh(geometry2, material2);
-					texture2.wrapS = texture2.wrapT = THREE.RepeatWrapping;
+					//texture2.wrapS = texture2.wrapT = THREE.RepeatWrapping;
 					texture2.repeat.set( 1, 1 );
 					scene.add(mesh2);
 
@@ -118,6 +118,8 @@
 				raycaster.setFromCamera( mouse, camera );
 
 				var intersects = raycaster.intersectObjects( scene.children );
+
+				console.log(scene);
 
 				if ( intersects.length > 0 ) {
 
