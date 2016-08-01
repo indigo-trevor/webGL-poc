@@ -52,7 +52,7 @@
 				for ( var i = 0; i < 1; i ++ ) {
 
 
-					var solo = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture2 , opacity: 0.65 } ) );
+					var solo = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture2 , opacity: 1 } ) );
 
 					scene.add( solo );
 
