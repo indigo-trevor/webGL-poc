@@ -21,3 +21,10 @@ body {
 .wrapper {                        // Wrapper around all block content
 
 }
+
+canvas {
+  background: url("../img/trophy.svg");
+  background-size: 50% 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}

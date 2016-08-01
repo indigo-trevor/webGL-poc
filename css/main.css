@@ -81,4 +81,10 @@ body {
   overflow: hidden;
   margin: 0px; }
 
+canvas {
+  background: url("../img/trophy.svg");
+  background-size: 50% 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat; }
+
 /*# sourceMappingURL=main.css.map */
