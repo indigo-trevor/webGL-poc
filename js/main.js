@@ -28,7 +28,7 @@
 				scene = new THREE.Scene();
 
 				var texture = THREE.ImageUtils.loadTexture( 'img/trevor-baseball.jpg' );
-				var texture2 = THREE.ImageUtils.loadTexture( 'img/trophy.svg' );
+				var texture2 = THREE.ImageUtils.loadTexture( 'img/trophy.png' );
 
 				var geometry = new THREE.BoxGeometry( 50, 50, 50 );
 
