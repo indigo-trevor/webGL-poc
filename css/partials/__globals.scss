@@ -27,7 +27,7 @@ body {
 
   ul {
     margin: 0 auto;
-    max-width: 1366px;
+    max-width: 1300px;
 
     li {
       padding: 25px 25px 25px 0px;
@@ -52,7 +52,7 @@ body {
 //Main content body
 .body {
   margin: 0 auto;
-  max-width: 1366px;
+  max-width: 1300px;
   padding: 0px 0px 15px 0px;
   position: relative;
   background: #eee;
@@ -60,11 +60,21 @@ body {
 
   h1 {
     font-size: 2em;
-    margin: 15px 0px;
+    margin: 15px 0px 0px 0px;
   }
 
   h2 {
     font-size: 1.5em;
+    margin: 15px 0px;
+  }
+
+  h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 10px 0px 5px 0px;
+  }
+
+  p {
     margin: 15px 0px;
   }
 

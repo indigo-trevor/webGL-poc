@@ -1,0 +1,235 @@
+#content{
+margin-top: 50px;
+margin-bottom: 50px;
+width: 100%;
+background-color: white;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 20px;
+padding-bottom: 10px;
+border: 1px solid gray;
+background-image: url('../img/web/design/content-bg.png');
+background-repeat: no-repeat;
+background-position: left center;
+}
+
+.top{
+text-align: center;
+height: 85px;
+}
+
+#left{
+width: 500px;
+float: left;
+}
+
+#right{
+padding-left: 20px;
+padding-right: 20px;
+margin-left: 500px;
+width: 500px;
+}
+
+h3{
+background-image: url('../img/web/design/apple.png');
+background-repeat: no-repeat;
+background-position: middle left;
+padding-left: 40px;
+height: 30px;
+margin-top: 0px;
+}
+
+h3>span{
+display: block;
+width: 94px;
+height: 15px;
+float: right;
+background-image: url('../img/web/design/machette.png');
+}
+
+.fruits{
+text-align: center;
+}
+
+#right p{
+text-align: justify;
+font-size: 0.9em;
+}
+
+#highlight{
+text-align: right;
+}
+
+#bottom{
+clear: both;
+margin-bottom: 20px;
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.highscores{
+width: 95%;
+margin: auto;
+border: 2px solid black;
+border-collapse: collapse;
+font-size: 0.9em;
+background-color: white;
+background-repeat: no-repeat;
+background-position: bottom right;
+}
+
+.highscores th{
+border: 2px solid black;
+padding: 7px;
+font-size: 0.9em;
+}
+
+.highscores td{
+border: 1px solid silver;
+font-size: 0.9em;
+}
+
+.highscores thead{
+background-image: url('../img/web/design/bg.png');
+background-repeat: repeat-x;
+background-color: #c0c0c0;
+}
+
+.rank,.score{
+background-color: #F0F0F0;
+text-align: center;
+}
+
+.date{
+padding-left: 5px;
+padding-right: 5px;
+}
+
+.nick{
+padding-left: 10px;
+padding-top: 3px;
+}
+
+.highscores_container{
+width: 95%;
+margin: auto;
+margin-bottom: 30px;
+}
+
+.highscores_container td{
+vertical-align: top;
+}
+
+.separator{
+height: 15px;
+}
+
+#gallery{
+text-align: center;
+}
+
+#footer{
+padding-top: 250px;
+text-align: center;
+font-size: 0.8em;
+background-image: url('../img/web/design/bottom.png');
+background-repeat: no-repeat;
+background-position: bottom;
+}
+
+#footer, #footer a{
+color: #a8a8a8;
+}
+
+.share{
+display: inline;
+float: left;
+margin-left: 20px;
+}
+
+#plusone{
+padding-top: 2px;
+}
+
+a{
+color: #a8a8a8;
+}
+
+img{
+border: none;
+}
+
+#gameContainer{
+width: 500px;
+height: 400px;
+border: 1px solid #a8a8a8;
+}
+
+#nocanvas{
+padding: 20px;
+}
+
+#log{
+clear: both;
+}
+
+#right{
+background-image: url('../img/web/design/about-bg.png');
+background-repeat: no-repeat;
+background-position: right 100px;
+}
+
+#license{
+font-size: 0.8em;
+margin: 5px;
+}
+
+#leaderboards_link{
+text-align: right;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+/* Bandeau de pub*/
+#bandeau{
+	background-color: #950000;
+	border: 1px solid white;
+
+	position: fixed;
+	width: 250px;
+	margin-right: -125px;
+	margin-top: -12px;
+	top: 70px;
+	right: 70px;
+
+	z-index: 1000;
+
+	transform:  rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+
+	box-shadow: 0px 0px 15px #8e8e8e;
+}
+
+#bandeau a{
+	color: white;
+	font-weight: bold;
+	font-size: 0.8em;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+	transition-property: color;
+	-moz-transition: color 0.5s;
+	-webkit-transition: color 0.5s;
+	-ms-transition: color 0.5s;
+	-o-transition: color 0.5s;
+}
+
+#bandeau a:hover{
+	color: gray;
+}
