@@ -3,7 +3,7 @@
 	<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Fruit Ninja Example</title>
+    <title>Wack a Computer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/fruit-ninja.css">
+    <link rel="stylesheet" href="css/wack.css">
     <script src="js/vendor/jquery-1.11.2.min.js"></script>
-    <script src="js/fruit-ninja.js"></script>
+    <script src="js/wack.js"></script>
 	</head>
 	<body>
 
@@ -28,33 +28,22 @@
 		</div>
 
     <div class='body'>
-      <h2>Simple Fruit Ninja game built in JavaScript</h2>
+      <h2>Wack a Computer</h2>
       <ul>
+        <li>Built in simple HTML5, CSS3 and JS.</li>
         <li>Fully responsive (desktop/tablet/mobile).</li>
-        <li>We are able to implement custom graphics (instead of fruit and such shown in this example).</li>
-        <li>i.e. Slicing old server cables</li>
+        <li>Completely customizable.</li>
+        <li>Create game logic that highlights the before and after nuances of the Evolution of IT</li>
       </ul>
     </div>
 
-    <div id="initialGameContainer">
-      <div id="gameContainer">
-        <canvas id="fruitDemo" width="500" height="400">
-          <!-- Fallback content -->
-          <div id="nocanvas">
-              Your web browser doesn't handle canvas or Javascript isn't enabled.
-              <br><a href="http://www.remvst.com/about-canvas.html" target="_blank">Click here</a> for more information.
-          </div>
-        </canvas>
-      </div>
-    </div>
+    <div id="main">
+  		<div id="header">
+  			<div id="scorebox">Score: <span id="score">0</span></div>
+  		</div>
+  		<div id="canvas">
+  		</div>
+  	</div>
 
-
-    <script type="text/javascript">
-			try{
-				fruitDemo();
-			}catch(e){
-				trace('Error during game startup : '+e);
-			}
-		</script>
 	</body>
 </html>
