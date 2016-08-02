@@ -120,6 +120,8 @@ body {
   .body ul {
     list-style-type: disc;
     padding-left: 25px; }
+  .body iframe {
+    margin: 30px 0px; }
   .body .view-demo {
     color: #fff;
     padding: 8px 25px;
