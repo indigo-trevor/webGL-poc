@@ -77,14 +77,56 @@ body {
   font: 17px/1.4 'Segoe UI', 'Segoe', Verdana, Arial, sans-serif; }
 
 body {
-  background: black;
+  background: #eee;
   overflow: hidden;
-  margin: 0px; }
+  margin: 0px;
+  color: #1C1C1C; }
 
-canvas {
-  background: url("../img/trophy.svg");
-  background-size: 50% 50%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat; }
+.nav {
+  background: #004185;
+  position: relative;
+  width: 100%; }
+  .nav ul {
+    margin: 0 auto;
+    max-width: 1366px; }
+    .nav ul li {
+      padding: 25px 25px 25px 0px;
+      display: inline-block; }
+      .nav ul li a {
+        color: #fff;
+        text-decoration: none; }
+        .nav ul li a:hover {
+          text-decoration: underline; }
+
+.body {
+  margin: 0 auto;
+  max-width: 1366px;
+  padding: 0px 0px 15px 0px;
+  position: relative;
+  background: #eee;
+  width: 100%; }
+  .body h1 {
+    font-size: 2em;
+    margin: 15px 0px; }
+  .body h2 {
+    font-size: 1.5em;
+    margin: 15px 0px; }
+  .body ul {
+    list-style-type: disc;
+    padding-left: 25px; }
+  .body .view-demo {
+    color: #fff;
+    padding: 8px 25px;
+    background: #004185;
+    border: none;
+    margin: 15px 0px 0px 0px; }
+
+section {
+  position: absolute;
+  top: 0px; }
+  section .close-demo {
+    font-size: 40px;
+    cursor: pointer;
+    padding: 25px 25px; }
 
 /*# sourceMappingURL=main.css.map */
