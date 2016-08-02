@@ -5,6 +5,12 @@
   max-width: 1300px;
   margin: 15px auto;
 }
+#initialGameContainer select {
+  display: none;
+}
+#initialGameContainer a {
+  display: none;
+}
 
 #content{
 margin-top: 50px;
