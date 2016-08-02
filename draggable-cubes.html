@@ -3,7 +3,7 @@
 	<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>WebGL and Tween Example</title>
+    <title>Draggable Cubes Example</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,38 +14,34 @@
 
 	</head>
 	<body>
-
-
 		<div class='nav'>
 			<ul>
-        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+				<li><a href="index.html"><i class="fa fa-home"></i></a></li>
 				<li><a href="webgl-tween.html">WebGL &amp; Tween</a></li>
 				<li><a href="draggable-cubes.html">WebGL Draggable</a></li>
-        <li><a href="fruit-ninja.html">Fruit Ninja</a></li>
-        <li><a href="wack.html">Wack a Computer</a></li>
-        <li><a href="360.html">360 Video</a></li>
+				<li><a href="fruit-ninja.html">Fruit Ninja</a></li>
+				<li><a href="wack.html">Wack a Computer</a></li>
+				<li><a href="360.html">360 Video</a></li>
 			</ul>
 		</div>
 
-    <div class='body'>
-      <h2>WebGL Interactive game using Greensock Library</h2>
-      <ul>
-        <li>Fully responsive.</li>
-        <li>We are able to implement custom graphics (instead of generic squares and circles as shown below).</li>
-        <li>We can tweak animations in order to achieve our desired treatment.</li>
+		<div class='body'>
+			<h2>Draggable Cubes using WebGL</h2>
+			<ul>
+        <li>This is a simple POC showing the draggable and rotational functionaly provided by the WebGL library</li>
+				<li>We can insert our own graphics</li>
+				<li>Maybe some form of treasure hunt???</li>
       </ul>
-      <button class='view-demo'>View demo</button>
-    </div>
+			<button class='view-demo'>View demo</button>
+		</div>
 
     <!-- JS plug-ins -->
-    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+		<script src="js/vendor/jquery-1.11.2.min.js"></script>
 		<script src="js/vendor/three.js"></script>
-    <script src="js/vendor/projector.js"></script>
-    <script src="js/vendor/canvas-renderer.js"></script>
+		<script src="js/vendor/trackball-controls.js"></script>
 		<script src="js/vendor/stats.min.js"></script>
-    <script src="js/vendor/tween.js"></script>
     <!-- JS Custom -->
-    <script src="js/webgl-tween.js"></script>
+    <script src="js/draggable-cubes.js"></script>
 
 	</body>
 </html>

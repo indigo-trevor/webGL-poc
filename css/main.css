@@ -95,6 +95,8 @@ body {
       .nav ul li a {
         color: #fff;
         text-decoration: none; }
+        .nav ul li a .fa-home {
+          font-size: 26px; }
         .nav ul li a:hover {
           text-decoration: underline; }
 
