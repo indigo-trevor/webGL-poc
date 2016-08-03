@@ -25,11 +25,11 @@ var controller = new ScrollMagic.Controller({container: "#container1"});
 // build tween
 var tween = new TimelineMax()
   .add(TweenMax.to($one, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone, reverse:true}))
-  .add(TweenMax.to($two, 0.3, {strokeDashoffset: 0, ease:Linear.easeNone}))
-  .add(TweenMax.to($three, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))
-  .add(TweenMax.to($four, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone}))
-  .add(TweenMax.to($five, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone}))
-  .add(TweenMax.to($six, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($two, 0.3, {strokeDashoffset: 0, ease:Linear.easeNone, reverse:true}))
+  .add(TweenMax.to($three, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone, reverse:true}))
+  .add(TweenMax.to($four, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone, reverse:true}))
+  .add(TweenMax.to($five, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone, reverse:true}))
+  .add(TweenMax.to($six, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone, reverse:true}))
   .add(TweenMax.to("path", 1, {stroke: "#3d44ac", ease:Linear.easeNone}), 0);			// change color during the whole thing
 
 // build scene
