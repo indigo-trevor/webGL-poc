@@ -7,7 +7,8 @@
 .scrollContainer {
 	overflow-y: scroll;
 	overflow-x: hidden;
-	width: 100%
+	width: 100%;
+	text-align: center;
 }
 .scrollContainer {
 	height: 100%;
@@ -1138,13 +1139,13 @@ section {
 	top: auto;
 }
 .demowrap {
-	width: 600px;
+	width: 825px;
 	height: 400px;
 	border: 1px solid #004185;
 	margin: 50px auto;
 }
 
 svg {
-	max-width: 75%;
+	max-width: 65%;
 	margin: 0 auto;
 }
