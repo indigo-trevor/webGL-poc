@@ -16,7 +16,7 @@ window._world = {
   width: 212,
   height: 17,
   backgroundColor: "rgba(66, 66, 255, 1)",
-  name: "level_1-1",
+  name: "Evolution of IT",
   sprites: [
     {
       "name": "ground",

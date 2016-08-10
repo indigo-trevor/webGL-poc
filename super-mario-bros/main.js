@@ -33,7 +33,7 @@ $(window).on("load", function() {
       options || (options = {});
       var controller = this;
 
-      _.bindAll(this, "onChangeState", "toggleState", "saveWorld", "loadWorld");
+      _.bindAll(this, "onChangeState", "toggleState", "loadWorld");
 
       // Create our sprite sheets and attach them to existing sprite classes
       this.spriteSheets = new Backbone.SpriteSheetCollection([{
@@ -88,29 +88,29 @@ $(window).on("load", function() {
       });
 
       // Buttons
-      this.toggleButton = new Backbone.Button({
-        x: 4, y: 4, width: 52, height: 52, borderRadius: 5,
-        img: "#icons", imgX: 0, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
-      });
-      this.toggleButton.on("tap", this.toggleState, this);
+      // this.toggleButton = new Backbone.Button({
+      //   x: 4, y: 4, width: 52, height: 52, borderRadius: 5,
+      //   img: "#icons", imgX: 0, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
+      // });
+      // this.toggleButton.on("tap", this.toggleState, this);
 
-      this.saveButton = new Backbone.Button({
-        x: 4, y: 548, width: 52, height: 52, borderRadius: 5,
-        img: "#icons", imgX: 96, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
-      });
-      this.saveButton.on("tap", this.saveWorld, this);
+      // this.saveButton = new Backbone.Button({
+      //   x: 4, y: 548, width: 52, height: 52, borderRadius: 5,
+      //   img: "#icons", imgX: 96, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
+      // });
+      // this.saveButton.on("tap", this.saveWorld, this);
 
-      this.restartButton = new Backbone.Button({
-        x: 4, y: 608, width: 52, height: 52, borderRadius: 5,
-        img: "#icons", imgX: 128, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
-      });
-      this.restartButton.on("tap", this.restartWorld, this);
+      // this.restartButton = new Backbone.Button({
+      //   x: 4, y: 608, width: 52, height: 52, borderRadius: 5,
+      //   img: "#icons", imgX: 128, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
+      // });
+      // this.restartButton.on("tap", this.restartWorld, this);
 
-      this.downloadButton = new Backbone.Button({
-        x: 888, y: 10, width: 52, height: 52, borderRadius: 5,
-        img: "#icons", imgX: 64, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
-      });
-      this.downloadButton.on("tap", this.downloadNewVersion, this);
+      // this.downloadButton = new Backbone.Button({
+      //   x: 888, y: 10, width: 52, height: 52, borderRadius: 5,
+      //   img: "#icons", imgX: 64, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
+      // });
+      // this.downloadButton.on("tap", this.downloadNewVersion, this);
 
       // The game engine
       this.engine = new Backbone.Engine({}, {
@@ -127,11 +127,11 @@ $(window).on("load", function() {
       ]));
 
       // The sprite picker and editor
-      this.editor = new Backbone.WorldEditor({
-        spriteNames: spriteNames
-      }, {
-        world: this.world
-      });
+      // this.editor = new Backbone.WorldEditor({
+      //   spriteNames: spriteNames
+      // }, {
+      //   world: this.world
+      // });
 
       // Controls
       $(document).on("keypress.Controller", function(e) {
@@ -156,11 +156,11 @@ $(window).on("load", function() {
       var state = this.world.get("state");
       if (state == "pause") {
         // Edit
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        this.engine.remove(this.input);
-        this.engine.add(this.editor);
-        this.engine.add([this.saveButton, this.restartButton]);
-        this.toggleButton.set({imgX: 32});
+        // context.clearRect(0, 0, canvas.width, canvas.height);
+        // this.engine.remove(this.input);
+        // this.engine.add(this.editor);
+        // this.engine.add([this.saveButton, this.restartButton]);
+        // this.toggleButton.set({imgX: 32});
       } else {
         // Play
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -211,38 +211,33 @@ $(window).on("load", function() {
       });
       return this;
     },
-    restartWorld: function() {
-      var controller = this,
-          world = this.world,
-          message = this.message;
+    // restartWorld: function() {
+    //   var controller = this,
+    //       world = this.world,
+    //       message = this.message;
 
-      message.show("Restarting...");
+    //   message.show("Restarting...");
 
-      localStorage.removeItem(world.id);
+    //   localStorage.removeItem(world.id);
 
-      world.set(window._world).spawnSprites();
+    //   world.set(window._world).spawnSprites();
 
-      setTimeout(function() {
-        message.hide();
-      }, 2000);
+    //   setTimeout(function() {
+    //     message.hide();
+    //   }, 2000);
 
-      return this;
-    },
-    downloadNewVersion: function() {
-      window.applicationCache.swapCache();
-      this.message.show("Please wait...");
-      window.location.reload();
-    }
+    //   return this;
+    // }
   });
   
   var controller = new Backbone.Controller();
 
   // When a newer version is available, load it and inform
   // the user it can be downloaded.
-  if (window.applicationCache !== undefined)
-    window.applicationCache.addEventListener('updateready', function() {
-      controller.engine.add(controller.downloadButton);
-    });
+  // if (window.applicationCache !== undefined)
+  //   window.applicationCache.addEventListener('updateready', function() {
+  //     controller.engine.add(controller.downloadButton);
+  //   });
 
   // Expose things as globals - easier to debug
   _.extend(window, {
