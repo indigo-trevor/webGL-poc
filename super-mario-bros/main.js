@@ -167,7 +167,7 @@ $(window).on("load", function() {
         this.engine.remove(this.editor);
         this.engine.remove([this.saveButton, this.restartButton]);
         this.engine.add(this.input);
-        // this.toggleButton.set({imgX: 0});
+        this.toggleButton.set({imgX: 0});
       }
     },
     // Save our world to the server when changed. Debounce by 5 seconds
