@@ -135,6 +135,16 @@ body {
     background: #004185;
     border: none;
     margin: 15px 0px 0px 0px; }
+  .body .video-container {
+    margin-top: 50px; }
+    .body .video-container video {
+      width: 750px; }
+  .body #toggle-video {
+    color: #fff;
+    padding: 8px 25px;
+    background: #004185;
+    border: none;
+    margin: 25px 0px 0px 0px; }
 
 section {
   position: absolute;

@@ -110,6 +110,25 @@ body {
     margin: 15px 0px 0px 0px;
   }
 
+
+  .video-container {
+    margin-top: 50px;
+
+    video {
+      width: 750px;
+    }
+
+
+  }
+  
+  #toggle-video {
+    color: #fff;
+    padding: 8px 25px;
+    background: #004185;
+    border: none;
+    margin: 25px 0px 0px 0px; 
+  }
+
 }
 
 //Canvas
