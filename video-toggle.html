@@ -20,7 +20,7 @@
 					<li><a href="index.html"><i class="fa fa-home"></i></a></li>
 					<li><a href="webgl-tween.html">WebGL &amp; Tween</a></li>
 					<li><a href="draggable-cubes.html">WebGL Draggable</a></li>
-	        <li><a href="fruit-ninja.html">Fruit Ninja</a></li>
+	        		<li><a href="fruit-ninja.html">Fruit Ninja</a></li>
 					<li><a href="wack.html">Wack a Computer</a></li>
 					<li><a href="360.html">360 Video</a></li>
 					<li><a href="scroll-magic.html">Scroll Magic</a></li>
@@ -30,18 +30,29 @@
 			</div>
 
 			<div class='body'>
-				<h1>Evolution of IT POC's </h1>
-				<p>The above examples (located on the Nav above) are POC's intended to showcase some of the functionality that we are capable of implementing into the Evolution of IT project. </p>
-				<h4>Additional Resources/Inspiration:</h4>
+
+				<h2>Toggle Video Source</h2>
 				<ul>
-					<li><a href="http://threejs.org/examples/" target="_blank">ThreeJS</a></li>
-					<li><a href="http://andeinerseite.video/ " target="_blank">Parallel universe story of one IT pro</a></li>
-					<li><a href="http://snapsvg.io/demos " target="_blank">SnapSVG</a></li>
-					<li><a href="http://scrollmagic.io/examples/" target="_blank">ScrollMagic</a></li>
-					<li><a href="http://soulwire.github.io/sketch.js/" target="_blank">SketchJS</a></li>
+					<li>This example shows the toggling of video sources using different triggers.</li>
 				</ul>
+
+				<div class="video-container">
+					<video controls class="toggle__video" id='video__1'>
+						<source src="videos/video__1.mp4" type="video/mp4">
+					</video>
+					<video controls class="toggle__video" id='video__2'>
+						<source src="videos/video__2.mp4" type="video/mp4">
+					</video>
+				</div>
+
+				<button type="button" id="toggle-video">Toggle Video</button>
+
 			</div>
 
+	<!-- JS plug-ins -->
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
 
+    <!-- JS Custom -->
+    <script src="js/video-toggle.js"></script>
 	</body>
 </html>
