@@ -1,27 +1,23 @@
+$(document).ready(function(){
 
 
-  var vid = document.getElementById("myVideo");
-  var currentlyPlaying = 1;
-  var currentlPlayingTime;
+  var videoOne = document.getElementById('video__1');
+  var videoTwo = document.getElementById('video__2');
 
-  var src1 = "videos/video__1.mp4";
+  $(videoTwo).hide();
+  
+  $( "#toggle-video" ).click(function() {
 
-  var src2 = "videos/video__2.mp4";
+    $(videoOne).toggle();
+    $(videoTwo).toggle();
 
-  function myFunction() {
-      currentlPlayingTime = vid.currentTime;
-      if (currentlyPlaying === 1) {
-          vid.src = src2;
-          currentlyPlaying = 2;
-      } else {
-          vid.src = src1;
-          currentlyPlaying = 1;
-      }
-      vid.load();
-      vid.addEventListener('loadedmetadata', function () {
-          vid.currentTime = currentlPlayingTime;
-          console.log(currentlPlayingTime);
-      }, false);
-  }
+    if ( $(videoTwo).css('display') == 'none' ){
+        videoOne.play();
+    } else {
+        videoTwo.play();
+    }
 
+  });
+    
 
+});
