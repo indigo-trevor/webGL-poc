@@ -41,15 +41,21 @@
 
 				<div id="player"></div>
 				<script type="text/javascript">
-				    var conf = {
-				        key:       "fb017a86-264b-4c52-ab26-edad419e8321",
-				        source: {
-				          dash:        "//bitdash-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd",
-				          hls:         "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
-				          progressive: "//bitdash-a.akamaihd.net/content/MI201109210084_1/MI201109210084_mpeg-4_hd_high_1080p25_10mbits.mp4",
-				          poster:      "//bitdash-a.akamaihd.net/content/MI201109210084_1/poster.jpg"
-				        }
-				    };
+						var conf = {
+					    key:    'fb017a86-264b-4c52-ab26-edad419e8321',
+					    source: {
+					      dash: 'https://eu-storage-bitcodin.storage.googleapis.com/bitStorage/16659_ff82dc0c747ad753444b57ead8eadc04/352983_7c897ed214f85004c75eb7a75de10612/352983.mpd',
+					      vr: {
+					        startupMode:  'off'
+					      }
+					    },
+					    style: {
+					      width:          '100%',
+					      aspectratio:    '16:9',
+					      controls:       true,
+					      mouse:          false
+					    }
+					  };
 				    var player = bitdash("player");
 				    player.setup(conf).then(function(value) {
 				        // Success
