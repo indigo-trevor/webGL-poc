@@ -9,7 +9,7 @@ $(window).on("load", function() {
    *
    */
 
-  
+
   var canvas = document.getElementById("foreground"),
       context = canvas.getContext("2d");
   adjustViewport(canvas);
@@ -24,7 +24,7 @@ $(window).on("load", function() {
     "tube1-out", "tube2-out", "tube3-out", "tube1-out-mirror", "tube2-out-mirror", "tube3-out-mirror", "water1", "lava1",
     "platform1", "platform2", "platform3",  "brick7-castle", "brick-castle", "brick2-castle", "brick3-castle",
     "mario", "luigi", "mushroom", "turtle", "flying-turtle", "red-turtle", "red-flying-turtle", "beetle", "spike",
-    "tube4-out", "tube5-out", "tube6-out", "tube4-out-mirror", "tube5-out-mirror", "tube6-out-mirror", "water2", "lava2", 
+    "tube4-out", "tube5-out", "tube6-out", "tube4-out-mirror", "tube5-out-mirror", "tube6-out-mirror", "water2", "lava2",
     "bush7", "bush8", "bush9", "platform-pole", "brick4-castle", "brick5-castle", "brick6-castle"
   ];
 
@@ -60,7 +60,7 @@ $(window).on("load", function() {
       }]).attachToSpriteClasses();
 
       // Create the debug panel
-      this.debugPanel = new Backbone.DebugPanel();
+      // this.debugPanel = new Backbone.DebugPanel();
 
       // User input (turn off touchpad to start)
       this.input = new Backbone.Input({
@@ -88,11 +88,11 @@ $(window).on("load", function() {
       });
 
       // Buttons
-      // this.toggleButton = new Backbone.Button({
-      //   x: 4, y: 4, width: 52, height: 52, borderRadius: 5,
-      //   img: "#icons", imgX: 0, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
-      // });
-      // this.toggleButton.on("tap", this.toggleState, this);
+      this.toggleButton = new Backbone.Button({
+        x: 4, y: 4, width: 52, height: 52, borderRadius: 5,
+        img: "#icons", imgX: 0, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
+      });
+      this.toggleButton.on("tap", this.toggleState, this);
 
       // this.saveButton = new Backbone.Button({
       //   x: 4, y: 548, width: 52, height: 52, borderRadius: 5,
@@ -100,11 +100,11 @@ $(window).on("load", function() {
       // });
       // this.saveButton.on("tap", this.saveWorld, this);
 
-      // this.restartButton = new Backbone.Button({
-      //   x: 4, y: 608, width: 52, height: 52, borderRadius: 5,
-      //   img: "#icons", imgX: 128, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
-      // });
-      // this.restartButton.on("tap", this.restartWorld, this);
+      this.restartButton = new Backbone.Button({
+        x: 65, y: 3, width: 52, height: 52, borderRadius: 5,
+        img: "#icons", imgX: 128, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
+      });
+      this.restartButton.on("tap", this.restartWorld, this);
 
       // this.downloadButton = new Backbone.Button({
       //   x: 888, y: 10, width: 52, height: 52, borderRadius: 5,
@@ -156,40 +156,40 @@ $(window).on("load", function() {
       var state = this.world.get("state");
       if (state == "pause") {
         // Edit
-        // context.clearRect(0, 0, canvas.width, canvas.height);
-        // this.engine.remove(this.input);
-        // this.engine.add(this.editor);
-        // this.engine.add([this.saveButton, this.restartButton]);
-        // this.toggleButton.set({imgX: 32});
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        this.engine.remove(this.input);
+        this.engine.add(this.editor);
+        this.engine.add([this.restartButton]);
+        this.toggleButton.set({imgX: 32});
       } else {
         // Play
         context.clearRect(0, 0, canvas.width, canvas.height);
         this.engine.remove(this.editor);
-        this.engine.remove([this.saveButton, this.restartButton]);
+        this.engine.remove([this.restartButton]);
         this.engine.add(this.input);
         this.toggleButton.set({imgX: 0});
       }
     },
     // Save our world to the server when changed. Debounce by 5 seconds
     // and push back saving upon activity
-    saveWorld: function() {
-      var controller = this,
-          world = this.world
-          message = this.message;
-
-      message.show("Saving...");
-      world.save(null, {
-        success: function() {
-          setTimeout(function() {
-            message.hide();
-          }, 1000);
-        },
-        error: function(xhr, textStatus, errorThrown ) {
-          message.show("Error: " + errorThrown);
-        }
-      });
-      return this;
-    },
+    // saveWorld: function() {
+    //   var controller = this,
+    //       world = this.world
+    //       message = this.message;
+    //
+    //   message.show("Saving...");
+    //   world.save(null, {
+    //     success: function() {
+    //       setTimeout(function() {
+    //         message.hide();
+    //       }, 1000);
+    //     },
+    //     error: function(xhr, textStatus, errorThrown ) {
+    //       message.show("Error: " + errorThrown);
+    //     }
+    //   });
+    //   return this;
+    // },
     // Load our world from the server.
     loadWorld: function() {
       var controller = this,
@@ -211,25 +211,25 @@ $(window).on("load", function() {
       });
       return this;
     },
-    // restartWorld: function() {
-    //   var controller = this,
-    //       world = this.world,
-    //       message = this.message;
+    restartWorld: function() {
+      var controller = this,
+          world = this.world,
+          message = this.message;
 
-    //   message.show("Restarting...");
+      message.show("Restarting...");
 
-    //   localStorage.removeItem(world.id);
+      localStorage.removeItem(world.id);
 
-    //   world.set(window._world).spawnSprites();
+      world.set(window._world).spawnSprites();
 
-    //   setTimeout(function() {
-    //     message.hide();
-    //   }, 2000);
+      setTimeout(function() {
+        message.hide();
+      }, 2000);
 
-    //   return this;
-    // }
+      return this;
+    }
   });
-  
+
   var controller = new Backbone.Controller();
 
   // When a newer version is available, load it and inform

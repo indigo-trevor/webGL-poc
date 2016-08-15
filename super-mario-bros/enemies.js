@@ -8,7 +8,7 @@
    * https://github.com/martindrapeau/backbone-game-engine
    *
    */
-   
+
   var sequenceDelay = 300,
       animations;
 
@@ -293,8 +293,8 @@
     animations["ko-left"].sequences = animations["ko-right"].sequences = [33];
   animations["walk-left"].sequences = animations["walk-right"].sequences = [33, 32];
   animations["squished-left"].sequences = animations["squished-right"].sequences =
-    animations["walk-slide-left"].sequences = animations["walk-slide-right"].sequences = 
-    animations["fall-slide-left"].sequences = animations["fall-slide-right"].sequences = 
+    animations["walk-slide-left"].sequences = animations["walk-slide-right"].sequences =
+    animations["fall-slide-left"].sequences = animations["fall-slide-right"].sequences =
     animations["wake-left"].sequences = animations["wake-right"].sequences = [34];
 
   Backbone.Spike = Backbone.Mushroom.extend({

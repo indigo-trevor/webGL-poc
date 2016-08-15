@@ -8,7 +8,7 @@
    * https://github.com/martindrapeau/backbone-game-engine
    *
    */
-   
+
   Backbone.Display = Backbone.Model.extend({
     defaults: {
       pennies: 0
@@ -35,7 +35,7 @@
           scaleY: 0.75
         }
       };
-        
+
       this.on("attach", this.onAttach, this);
       this.on("detach", this.onDetach, this);
     },
@@ -60,7 +60,7 @@
       context.font = "20px arcade, Verdana, Arial, Sans-Serif";
       context.textBaseline = "top";
       context.fontWeight = "normal";
-      
+
       context.textAlign = "left";
       context.fillText(text, context.canvas.width/2 - 100, 12);
 

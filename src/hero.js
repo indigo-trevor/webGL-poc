@@ -9,7 +9,7 @@
       runAcceleration = 400,
       releaseDeceleration = 200,
       skidDeceleration = 400,
-      jumpVelocity = 600,
+      jumpVelocity = 650,
       jumpDeceleration = 1400,
       jumpHoldDeceleration = 900,
       fallAcceleration = 1200,
@@ -361,7 +361,7 @@
       var cur = this.getStateInfo(),
           opo = dir == "left" ? "right" : "left",
           state = this.buildState("ko", opo);
-      
+
       this.set({
         state: state,
         velocity: this.animations[state].velocity,

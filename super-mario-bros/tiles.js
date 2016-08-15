@@ -12,8 +12,8 @@
   Backbone.Tile = Backbone.Sprite.extend({
     defaults: {
       type: "tile",
-      width: 32,
-      height: 32,
+      width: 20,
+      height: 20,
       spriteSheet: "tiles",
       state: "idle",
       static: true,
