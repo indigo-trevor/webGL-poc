@@ -1,14 +1,5 @@
 (function() {
-
-  /**
-   *
-   * Backbone Game Engine - An elementary HTML5 canvas game engine using Backbone.
-   *
-   * Copyright (c) 2014 Martin Drapeau
-   * https://github.com/martindrapeau/backbone-game-engine
-   *
-   */
-
+  
   // Sprite class; a Backbone Model which implements the required update
   // and draw functions to animate a sprite, frame by frame.
   Backbone.Sprite = Backbone.Model.extend({
@@ -126,7 +117,7 @@
     draw: function(context, options) {
       options || (options = {});
       if (this.get("visible") === false) return this;
-      
+
       var animation = this.getAnimation(),
           sequenceIndex = this.get("sequenceIndex") || 0;
       if (!animation || animation.sequences.length == 0) return;
@@ -281,7 +272,7 @@
   });
 
   // SpriteSheetCollection class; a Backbone collection of SpriteSheet models.
-  // 
+  //
   // Once the sprite sheet collection is instantiated, call method
   // attachToSpriteClasses() to automatically attach sprite sheets to sprites.
   // Will set the spriteSheet property on classes, avoiding you to have to do
@@ -1280,15 +1271,15 @@
     easeOutQuad: function (t) { return t*(2-t) },
     // acceleration until halfway, then deceleration
     easeInOutQuad: function (t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
-    // accelerating from zero velocity 
+    // accelerating from zero velocity
     easeInCubic: function (t) { return t*t*t },
-    // decelerating to zero velocity 
+    // decelerating to zero velocity
     easeOutCubic: function (t) { return (--t)*t*t+1 },
-    // acceleration until halfway, then deceleration 
+    // acceleration until halfway, then deceleration
     easeInOutCubic: function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 },
-    // accelerating from zero velocity 
+    // accelerating from zero velocity
     easeInQuart: function (t) { return t*t*t*t },
-    // decelerating to zero velocity 
+    // decelerating to zero velocity
     easeOutQuart: function (t) { return 1-(--t)*t*t*t },
     // acceleration until halfway, then deceleration
     easeInOutQuart: function (t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t },
@@ -1296,7 +1287,7 @@
     easeInQuint: function (t) { return t*t*t*t*t },
     // decelerating to zero velocity
     easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
-    // acceleration until halfway, then deceleration 
+    // acceleration until halfway, then deceleration
     easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
   };
 

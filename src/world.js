@@ -36,7 +36,7 @@
       this.input = options.input;
       this.camera = options.camera;
       this.debugPanel = options.debugPanel;
-      
+
       _.bindAll(this,
         "wrapTime",
         "save", "getWorldIndex", "getWorldCol", "getWorldRow", "cloneAtPosition",
@@ -577,7 +577,7 @@
         dynamicDrawn: count,
         dynamicDrawTime: _.now()-start
       });
-      
+
       return this;
     },
 
@@ -786,7 +786,7 @@
         this.sprites.remove(existing);
         return null;
       }
-      
+
       if (existing) {
         if (spriteName == existingName) {
           if (!existing.getStateInfo) {

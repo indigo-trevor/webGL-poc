@@ -31,6 +31,7 @@
           this.bounce.apply(this, arguments);
         } else if (sprite.isAttacking()) {
           this.knockout(sprite, "left");
+            console.log("You are dead due to a mole/turtle!"); /// This is when Mario runs into mole
         }
         sprite.trigger("hit", this, opo);
       }

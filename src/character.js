@@ -1,14 +1,5 @@
 (function() {
 
-  /**
-   *
-   * Backbone Game Engine - An elementary HTML5 canvas game engine using Backbone.
-   *
-   * Copyright (c) 2014 Martin Drapeau
-   * https://github.com/martindrapeau/backbone-game-engine
-   *
-   */
-
   var sequenceDelay = 300,
       walkVelocity = 50,
       fallAcceleration = 1200,
@@ -414,7 +405,7 @@
           var worldRight = this.world.width(),
               rightX = worldRight,
               rightCharacter;
-          
+
           if (cur.mov != "ko" && cur.mov != "idle")
             for (i = 0; i < this.collisionMap.right.sprites.length; i++) {
               sprite = this.collisionMap.right.sprites[i];

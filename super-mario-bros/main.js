@@ -91,7 +91,7 @@ $(window).on("load", function() {
       // this.saveButton.on("tap", this.saveWorld, this);
 
       this.restartButton = new Backbone.Button({
-        x: 65, y: 3, width: 52, height: 52, borderRadius: 5,
+        x: 63, y: 4, width: 52, height: 52, borderRadius: 5,
         img: "#icons", imgX: 128, imgY: 0, imgWidth: 32, imgHeight: 32, imgMargin: 10
       });
       this.restartButton.on("tap", this.restartWorld, this);
