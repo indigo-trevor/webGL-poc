@@ -58,3 +58,107 @@ var keys = {
 	right : false,
 	down : false,
 };
+
+
+
+function __triggerKeyboardDown(el, keyCode)
+{
+    var eventObj = document.createEventObject ?
+        document.createEventObject() : document.createEvent("Events");
+  
+    if(eventObj.initEvent){
+      eventObj.initEvent("keydown", true, true);
+    }
+  
+    eventObj.keyCode = keyCode;
+    eventObj.which = keyCode;
+    
+    el.dispatchEvent ? el.dispatchEvent(eventObj) : el.fireEvent("onkeydown", eventObj); 
+  
+} 
+
+function __triggerKeyboardUp(el, keyCode)
+{
+    var eventObj = document.createEventObject ?
+        document.createEventObject() : document.createEvent("Events");
+  
+    if(eventObj.initEvent){
+      eventObj.initEvent("keyup", true, true);
+    }
+  
+    eventObj.keyCode = keyCode;
+    eventObj.which = keyCode;
+    
+    el.dispatchEvent ? el.dispatchEvent(eventObj) : el.fireEvent("onkeydown", eventObj); 
+  
+} 
+
+
+function traceEvent(e){
+    $(".logs").prepend(jQuery("<li>").html(
+      "Key = " + e.keyCode
+    ).fadeIn());
+    
+    console.log(e);
+}
+
+
+
+$(document).ready(function(){
+  
+	c_left.onmousedown = function(){
+	__triggerKeyboardDown(document.body, 37);
+	}
+	c_right.onmousedown = function(){
+	__triggerKeyboardDown(document.body, 39);
+	}
+	c_up.onmousedown = function(){
+	__triggerKeyboardDown(document.body, 38);
+	}
+	c_down.onmousedown = function(){
+	__triggerKeyboardDown(document.body, 40);
+	}
+	c_accelerate.onmousedown = function(){
+	__triggerKeyboardDown(document.body, 17);
+	}
+
+	c_left.onmouseup = function(){
+	__triggerKeyboardUp(document.body, 37);
+	}
+	c_right.onmouseup = function(){
+	__triggerKeyboardUp(document.body, 39);
+	}
+	c_up.onmouseup = function(){
+	__triggerKeyboardUp(document.body, 38);
+	}
+	c_down.onmouseup = function(){
+	__triggerKeyboardUp(document.body, 40);
+	}
+	c_accelerate.onmouseup = function(){
+	__triggerKeyboardUp(document.body, 17);
+	}
+
+	
+	c_left.onmouseout = function(){
+	__triggerKeyboardUp(document.body, 37);
+	}
+	c_right.onmouseout = function(){
+	__triggerKeyboardUp(document.body, 39);
+	}
+	c_up.onmouseout = function(){
+	__triggerKeyboardUp(document.body, 38);
+	}
+	c_down.onmouseout = function(){
+	__triggerKeyboardUp(document.body, 40);
+	}
+	c_accelerate.onmouseout = function(){
+	__triggerKeyboardUp(document.body, 17);
+	}
+
+
+  /*
+  setInterval(function(){
+    __triggerKeyboardEvent(document.body, 13);
+  }, 5000);
+  */
+}); 
