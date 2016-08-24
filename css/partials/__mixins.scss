@@ -131,8 +131,8 @@
   -moz-flex-wrap: $value;
   @if $value == nowrap {
     -ms-flex-wrap: none;
-  } @else { 
-    -ms-flex-wrap: $value; 
+  } @else {
+    -ms-flex-wrap: $value;
   }
   flex-wrap: $value;
 }
@@ -249,20 +249,19 @@
 
 
 /** Media Query Mixins, Breakpoints **/
-/** Media Query Mixins, Breakpoints **/
 @mixin respond-to($name) {
   @if $name == "mobile" {
     @media all and (max-width: 697px) {
       @content;
     }
   }
-  @else if $name == "laptop" {
-    @media all and (min-width: 698px) and (max-width: 1440px) {
+  @else if $name == "tablet" {
+    @media all and (min-width: 698px) and (max-width: 1200px) {
       @content;
     }
   }
-  @else if $name == "bigger" {
-    @media all and (min-width: 1441px) {
+  @else if $name == "desktop" {
+    @media all and (min-width: 1101px) {
       @content;
     }
   }

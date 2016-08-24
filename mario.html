@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset=utf-8 />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super Mario HTML5 Test</title>
+<link rel="stylesheet" href="css/main.css">
+<link href="Content/style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class='nav'>
+    <ul>
+      <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+      <li><a href="webgl-tween.html">WebGL &amp; Tween</a></li>
+      <li><a href="draggable-cubes.html">WebGL Draggable</a></li>
+      <li><a href="fruit-ninja.html">Fruit Ninja</a></li>
+      <li><a href="wack.html">Wack a Computer</a></li>
+      <li><a href="360.html">360 Video</a></li>
+      <li><a href="scroll-magic.html">Scroll Magic</a></li>
+      <li><a href="super-mario-bros">Super Mario Bros</a></li>
+      <li><a href="video-toggle.html">Video Toggle</a></li>
+      <li><a href="mario.html">Mario #2</a></li>
+    </ul>
+  </div>
+
+  <div class='body'>
+    <h2>Mario #2 </h2>
+  </div>
+
+  <div id="game">
+    <div id="world"></div>
+    <div id="coinNumber" class="gauge">0</div>
+    <div id="coin" class="gaugeSprite"></div>
+    <div id="liveNumber" class="gauge">0</div>
+    <div id="live" class="gaugeSprite"></div>
+  </div>
+  <div class="c-control-container">
+    <div class='c-control c-left'>Left</div>
+    <div class='c-control c-right'>Right</div>
+    <div class='c-control c-up'>Up</div>
+    <div class='c-control c-down'>Down</div>
+    <div class='c-control c-accelerate'>Accel</div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="Scripts/jQuery.js"><\/script>')</script>
+  <script src="Scripts/testlevels.js"></script>
+  <script src="Scripts/oop.js"></script>
+  <script src="Scripts/keys.js"></script>
+  <script src="Scripts/constants.js"></script>
+  <script src="Scripts/main.js"></script>
+  <script>
+  $(document).ready(function() {
+    var sounds = new SoundManager();//**
+    var level = new Level('world');//world is the id of the corresponding DOM container
+    level.setSounds(sounds);//*
+    level.load(definedLevels[0]);
+    level.start();
+    keys.bind();
+});
+  </script>
+</body>
+</html>

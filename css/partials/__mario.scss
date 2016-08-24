@@ -1,0 +1,28 @@
+.c-control {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: red;
+  margin-right: 10px;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+.c-control-container {
+  margin: 0 auto;
+  max-width: 638px;
+  padding: 0px 0px 15px 0px;
+  position: relative;
+  background: #eee;
+  width: 100%;
+  top: 575px;
+}
+@include respond-to(tablet) {
+
+}
+
+@include respond-to(mobile) {
+
+}
